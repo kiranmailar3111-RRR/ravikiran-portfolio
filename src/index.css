@@ -1,0 +1,59 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#020817;
+  --bg2:#0a0f1e;
+  --blue:#3b82f6;
+  --blue2:#60a5fa;
+  --blue3:#93c5fd;
+  --purple:#8b5cf6;
+  --cyan:#06b6d4;
+  --glass:rgba(255,255,255,0.03);
+  --glass2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(59,130,246,0.35);
+  --text:#f1f5f9;
+  --text2:#94a3b8;
+  --text3:#475569;
+}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--blue),var(--purple));border-radius:2px;}
+::selection{background:rgba(59,130,246,0.3);}
+
+/* ============ RESPONSIVE BREAKPOINTS ============ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  #about > div { grid-template-columns: 1fr !important; gap: 48px !important; }
+  #skills .skills-grid-cols { grid-template-columns: repeat(2,1fr) !important; }
+  #projects .projects-grid-cols { grid-template-columns: 1fr !important; }
+}
+
+/* Mobile */
+@media (max-width: 860px) {
+  #hero, #about, #skills, #experience, #projects, #contact {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  #hero { padding-top: 100px !important; padding-bottom: 60px !important; }
+  #skills .skills-grid-cols { grid-template-columns: 1fr !important; }
+  #experience { padding-left: 24px !important; }
+  #experience > div:last-child { padding-left: 28px !important; }
+  .hero-stats-row { gap: 24px !important; }
+  #contact > div { padding: 40px 24px !important; }
+  #contact .contact-links-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 480px) {
+  .hero-stats-row { gap: 16px 20px !important; }
+  .hero-btns-row { flex-direction: column !important; width: 100%; }
+  .hero-btns-row a { width: 100%; justify-content: center !important; }
+}
