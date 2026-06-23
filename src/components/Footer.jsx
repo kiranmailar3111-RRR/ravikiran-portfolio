@@ -8,7 +8,7 @@ export default function Footer() {
     }}>
       <span>Designed & Built by </span>
       <strong style={{color:'#60a5fa'}}>Ravikiran G Mailar</strong>
-      <span> · Bengaluru, India · 2025</span>
+      <span> · Bengaluru, India · 2026</span>
     </footer>
   )
 }
