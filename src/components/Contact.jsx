@@ -1,10 +1,12 @@
 import { useRef, useState, useEffect } from 'react'
+import { FaLinkedin, FaGithub, FaPhoneAlt } from 'react-icons/fa'
+import { MdEmail } from 'react-icons/md'
 
 const links = [
-  { icon:'📧', label:'Email', value:'kiranmailar3111@gmail.com', href:'mailto:kiranmailar3111@gmail.com', color:'#3b82f6' },
-  { icon:'💼', label:'LinkedIn', value:'ravi-kiran-1a7010247', href:'https://linkedin.com/in/ravi-kiran-1a7010247', color:'#0077b5' },
-  { icon:'🐙', label:'GitHub', value:'kiranmailar3111-RRR', href:'https://github.com/kiranmailar3111-RRR', color:'#6e7681' },
-  { icon:'📱', label:'Phone', value:'+91 9743330294', href:'tel:+919743330294', color:'#10b981' },
+  { Icon: MdEmail,    label:'Email', value:'kiranmailar3111@gmail.com', href:'mailto:kiranmailar3111@gmail.com', color:'#3b82f6' },
+  { Icon: FaLinkedin, label:'LinkedIn', value:'ravi-kiran-1a7010247', href:'https://linkedin.com/in/ravi-kiran-1a7010247', color:'#0077b5' },
+  { Icon: FaGithub,   label:'GitHub', value:'kiranmailar3111-RRR', href:'https://github.com/kiranmailar3111-RRR', color:'#e6edf3' },
+  { Icon: FaPhoneAlt, label:'Phone', value:'+91 9743330294', href:'tel:+919743330294', color:'#10b981' },
 ]
 
 export default function Contact() {
@@ -81,7 +83,13 @@ export default function Contact() {
                 e.currentTarget.style.boxShadow='none'
               }}
             >
-              <span style={{fontSize:'24px'}}>{l.icon}</span>
+              <span style={{
+                display:'flex',alignItems:'center',justifyContent:'center',
+                width:'40px',height:'40px',flexShrink:0,borderRadius:'10px',
+                background:l.color+'15',
+              }}>
+                <l.Icon size={20} color={l.color} />
+              </span>
               <div>
                 <div style={{fontSize:'11px',fontWeight:600,letterSpacing:'0.08em',color:'#475569',textTransform:'uppercase',marginBottom:'2px'}}>{l.label}</div>
                 <div style={{fontSize:'13px',fontWeight:500}}>{l.value}</div>

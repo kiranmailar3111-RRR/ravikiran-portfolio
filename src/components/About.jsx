@@ -1,5 +1,18 @@
 import { useRef, useState, useEffect } from 'react'
 import myPhoto from '../assets/ravikiran-photo.jpg'
+import {
+  FaLaravel, FaReact, FaWordpress, FaNodeJs, FaPhp, FaRocket, FaGlobe, FaRobot,
+} from 'react-icons/fa';
+import { SiMysql } from 'react-icons/si';
+
+const stack = [
+  { name: 'Laravel',   Icon: FaLaravel,   color: '#FF2D20' },
+  { name: 'React.js',  Icon: FaReact,     color: '#61DAFB' },
+  { name: 'WordPress', Icon: FaWordpress, color: '#21759B' },
+  { name: 'Node.js',   Icon: FaNodeJs,    color: '#3C873A' },
+  { name: 'MySQL',     Icon: SiMysql,     color: '#4479A1' },
+  { name: 'PHP',       Icon: FaPhp,       color: '#777BB4' },
+];
 
 export default function About() {
   const ref = useRef(null)
@@ -14,9 +27,9 @@ export default function About() {
   }, [])
 
   const cards = [
-    { icon:'🚀', title:'Full Stack Developer', desc:'End-to-end product development — from database schema to polished React.js frontend with Laravel backends.' },
-    { icon:'🌐', title:'WordPress & CMS Expert', desc:'25+ production websites for community portals, e-commerce, and businesses with full SEO and cPanel deployment.' },
-    { icon:'🤖', title:'AI Integration', desc:'Explored AI development by integrating Groq\'s LLaMA 3 model into BotPilot — a real-time chatbot builder platform.' },
+    { Icon: FaRocket, color:'#60a5fa', title:'Full Stack Developer', desc:'End-to-end product development — from database schema to polished React.js frontend with Laravel backends.' },
+    { Icon: FaGlobe,  color:'#34d399', title:'WordPress & CMS Expert', desc:'25+ production websites for community portals, e-commerce, and businesses with full SEO and cPanel deployment.' },
+    { Icon: FaRobot,  color:'#a78bfa', title:'AI Integration', desc:'Explored AI development by integrating Groq\'s LLaMA 3 model into BotPilot — a real-time chatbot builder platform.' },
   ]
 
   return (
@@ -58,7 +71,7 @@ export default function About() {
 
           <p style={{color:'#94a3b8',fontSize:'15px',lineHeight:1.85,marginBottom:'20px'}}>
             I'm <strong style={{color:'#f1f5f9'}}>Ravikiran G Mailar</strong>, a Full Stack Developer with{' '}
-            <strong style={{color:'#60a5fa'}}>2.3 years</strong> of experience building production-grade
+            <strong style={{color:'#60a5fa'}}>2.5 years</strong> of experience building production-grade
             web applications, SaaS platforms, and client websites at{' '}
             <strong style={{color:'#f1f5f9'}}>Angika Technologies, Bengaluru</strong>.
           </p>
@@ -74,12 +87,16 @@ export default function About() {
           </p>
 
           <div style={{display:'flex',gap:'16px',marginTop:'36px',flexWrap:'wrap'}}>
-            {['Laravel','React.js','WordPress','Node.js','MySQL','PHP'].map(s => (
-              <span key={s} style={{
+            {stack.map(({ name, Icon, color }) => (
+              <span key={name} style={{
+                display:'flex',alignItems:'center',gap:'8px',
                 padding:'8px 18px',borderRadius:'100px',fontSize:'13px',fontWeight:500,
                 background:'rgba(59,130,246,0.08)',border:'1px solid rgba(59,130,246,0.2)',
                 color:'#93c5fd',
-              }}>{s}</span>
+              }}>
+                <Icon size={20} color={color} />
+                {name}
+              </span>
             ))}
           </div>
         </div>
@@ -92,6 +109,114 @@ export default function About() {
             position:'relative',marginBottom:'8px',
             display:'flex',justifyContent:'center',
           }}>
+            {/* Pulsing outer glow */}
+            <div style={{
+              position:'absolute',top:'50%',left:'50%',
+              width:'340px',height:'340px',borderRadius:'50%',
+              transform:'translate(-50%,-50%)',
+              background:'radial-gradient(circle, rgba(139,92,246,0.18), transparent 70%)',
+              animation:'glowPulse 3s ease-in-out infinite',
+              pointerEvents:'none',
+            }}/>
+
+            {/* Outer sweeping arc */}
+            <svg width="310" height="310" style={{
+              position:'absolute',top:'50%',left:'50%',
+              transform:'translate(-50%,-50%)',
+              animation:'ringRotate 4s linear infinite',
+              pointerEvents:'none',
+            }}>
+              <defs>
+                <linearGradient id="ringGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0"/>
+                  <stop offset="50%" stopColor="#60a5fa" stopOpacity="1"/>
+                  <stop offset="100%" stopColor="#06b6d4" stopOpacity="0"/>
+                </linearGradient>
+              </defs>
+              <circle cx="155" cy="155" r="147" fill="none"
+                stroke="url(#ringGrad1)" strokeWidth="2.5"
+                strokeDasharray="220 700" strokeLinecap="round"/>
+            </svg>
+
+            {/* Middle counter-rotating arc */}
+            <svg width="285" height="285" style={{
+              position:'absolute',top:'50%',left:'50%',
+              transform:'translate(-50%,-50%)',
+              animation:'ringRotateReverse 6s linear infinite',
+              pointerEvents:'none',
+            }}>
+              <defs>
+                <linearGradient id="ringGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#a78bfa" stopOpacity="0"/>
+                  <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.9"/>
+                  <stop offset="100%" stopColor="#a78bfa" stopOpacity="0"/>
+                </linearGradient>
+              </defs>
+              <circle cx="142.5" cy="142.5" r="135" fill="none"
+                stroke="url(#ringGrad2)" strokeWidth="1.5"
+                strokeDasharray="160 540" strokeLinecap="round"/>
+            </svg>
+
+            {/* Inner thin dotted ring, slow rotate */}
+            <svg width="265" height="265" style={{
+              position:'absolute',top:'50%',left:'50%',
+              transform:'translate(-50%,-50%)',
+              animation:'ringRotate 14s linear infinite',
+              pointerEvents:'none',
+            }}>
+              <circle cx="132.5" cy="132.5" r="124" fill="none"
+                stroke="#06b6d4" strokeOpacity="0.4" strokeWidth="1.5"
+                strokeDasharray="2 10" strokeLinecap="round"/>
+            </svg>
+
+            {/* Orbiting dot 1 — fast, outer */}
+            <div style={{
+              position:'absolute',top:'50%',left:'50%',
+              width:'310px',height:'310px',
+              transform:'translate(-50%,-50%)',
+              animation:'ringRotate 4s linear infinite',
+              pointerEvents:'none',
+            }}>
+              <div style={{
+                position:'absolute',top:'2px',left:'50%',
+                width:'9px',height:'9px',borderRadius:'50%',
+                background:'#60a5fa',transform:'translateX(-50%)',
+                boxShadow:'0 0 14px 4px #60a5fa',
+              }}/>
+            </div>
+
+            {/* Orbiting dot 2 — medium, opposite direction */}
+            <div style={{
+              position:'absolute',top:'50%',left:'50%',
+              width:'285px',height:'285px',
+              transform:'translate(-50%,-50%)',
+              animation:'ringRotateReverse 6s linear infinite',
+              pointerEvents:'none',
+            }}>
+              <div style={{
+                position:'absolute',bottom:'4px',left:'50%',
+                width:'7px',height:'7px',borderRadius:'50%',
+                background:'#a78bfa',transform:'translateX(-50%)',
+                boxShadow:'0 0 12px 3px #a78bfa',
+              }}/>
+            </div>
+
+            {/* Orbiting dot 3 — slow, inner */}
+            <div style={{
+              position:'absolute',top:'50%',left:'50%',
+              width:'265px',height:'265px',
+              transform:'translate(-50%,-50%)',
+              animation:'ringRotate 8s linear infinite',
+              pointerEvents:'none',
+            }}>
+              <div style={{
+                position:'absolute',top:'50%',right:'-3px',
+                width:'6px',height:'6px',borderRadius:'50%',
+                background:'#06b6d4',transform:'translateY(-50%)',
+                boxShadow:'0 0 10px 3px #06b6d4',
+              }}/>
+            </div>
+
             <div style={{
               width:'260px',height:'260px',borderRadius:'30px',
               position:'relative',padding:'3px',
@@ -161,9 +286,11 @@ export default function About() {
             >
               <div style={{
                 width:'44px',height:'44px',borderRadius:'12px',flexShrink:0,
-                background:'rgba(59,130,246,0.1)',border:'1px solid rgba(59,130,246,0.2)',
-                display:'flex',alignItems:'center',justifyContent:'center',fontSize:'20px',
-              }}>{c.icon}</div>
+                background:`${c.color}15`,border:`1px solid ${c.color}30`,
+                display:'flex',alignItems:'center',justifyContent:'center',
+              }}>
+                <c.Icon size={19} color={c.color} />
+              </div>
               <div>
                 <div style={{fontSize:'14px',fontWeight:600,marginBottom:'4px',color:'#f1f5f9'}}>{c.title}</div>
                 <div style={{fontSize:'13px',color:'#64748b',lineHeight:1.6}}>{c.desc}</div>
@@ -175,6 +302,9 @@ export default function About() {
       <style>{`
         @keyframes gradientSpin{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
         @keyframes pulse2{0%,100%{opacity:1}50%{opacity:0.4}}
+        @keyframes ringRotate{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+        @keyframes ringRotateReverse{from{transform:translate(-50%,-50%) rotate(360deg)}to{transform:translate(-50%,-50%) rotate(0deg)}}
+        @keyframes glowPulse{0%,100%{opacity:0.6;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
       `}</style>
     </section>
   )

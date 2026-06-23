@@ -1,7 +1,10 @@
 import { useRef, useState, useEffect } from 'react'
+import { FaLaravel, FaWordpress } from 'react-icons/fa'
+import { MdLocationOn, MdCalendarToday, MdBusinessCenter } from 'react-icons/md'
 
 const jobs = [
   {
+    RoleIcon: FaLaravel,
     role:'Full Stack Developer — Laravel & Livewire',
     company:'Angika Technologies Pvt Ltd',
     location:'Bengaluru, Karnataka',
@@ -17,6 +20,7 @@ const jobs = [
     tags:['Laravel','Livewire','PHP','MySQL','Spatie','DomPDF'],
   },
   {
+    RoleIcon: FaWordpress,
     role:'WordPress Developer — Client Websites',
     company:'Angika Technologies Pvt Ltd',
     location:'Bengaluru, Karnataka',
@@ -100,17 +104,42 @@ export default function Experience() {
                 e.currentTarget.style.boxShadow='none'
               }}
             >
-              <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:'8px',flexWrap:'wrap',gap:'12px'}}>
-                <div style={{fontSize:'19px',fontWeight:700,color:'#f1f5f9'}}>{j.role}</div>
+              <div style={{display:'flex',gap:'16px',marginBottom:'20px'}}>
+                {/* Role logo */}
                 <div style={{
-                  padding:'6px 16px',borderRadius:'100px',fontSize:'12px',fontWeight:600,
-                  background:`${j.color}18`,border:`1px solid ${j.color}35`,color:j.color,
-                  whiteSpace:'nowrap',
-                }}>{j.period}</div>
+                  width:'52px',height:'52px',borderRadius:'14px',flexShrink:0,
+                  background:`${j.color}15`,border:`1px solid ${j.color}30`,
+                  display:'flex',alignItems:'center',justifyContent:'center',
+                }}>
+                  <j.RoleIcon size={24} color={j.color} />
+                </div>
+
+                <div style={{flex:1}}>
+                  <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:'10px',flexWrap:'wrap',gap:'12px'}}>
+                    <div style={{fontSize:'19px',fontWeight:700,color:'#f1f5f9'}}>{j.role}</div>
+                    <div style={{
+                      display:'flex',alignItems:'center',gap:'6px',
+                      padding:'6px 16px',borderRadius:'100px',fontSize:'12px',fontWeight:600,
+                      background:`${j.color}18`,border:`1px solid ${j.color}35`,color:j.color,
+                      whiteSpace:'nowrap',
+                    }}>
+                      <MdCalendarToday size={13} />
+                      {j.period}
+                    </div>
+                  </div>
+                  <div style={{display:'flex',alignItems:'center',gap:'14px',fontSize:'14px',fontWeight:600,color:j.color,flexWrap:'wrap'}}>
+                    <span style={{display:'flex',alignItems:'center',gap:'5px'}}>
+                      <MdBusinessCenter size={15} />
+                      {j.company}
+                    </span>
+                    <span style={{display:'flex',alignItems:'center',gap:'5px'}}>
+                      <MdLocationOn size={15} />
+                      {j.location}
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div style={{fontSize:'14px',fontWeight:600,color:j.color,marginBottom:'20px'}}>
-                {j.company} · {j.location}
-              </div>
+
               <ul style={{listStyle:'none',display:'flex',flexDirection:'column',gap:'10px',marginBottom:'24px'}}>
                 {j.bullets.map((b, bi) => (
                   <li key={bi} style={{

@@ -1,8 +1,10 @@
 import { useRef, useState, useEffect } from 'react'
+import { FaGithub, FaMoneyBillWave, FaGlobe, FaRobot } from 'react-icons/fa'
+import { MdArrowOutward } from 'react-icons/md'
 
 const projects = [
   {
-    icon:'💰', badge:'Featured SaaS Project', featured:true,
+    Icon: FaMoneyBillWave, badge:'Featured SaaS Project', featured:true,
     title:'BillStack — GST Inventory Billing SaaS',
     desc:'Full-stack SaaS for businesses to manage products, customers, GST invoices, stock, and analytics. Features atomic invoice engine — GST calculation, stock deduction, and PDF export in one DB transaction.',
     tech:['React.js','Laravel REST API','Sanctum Auth','MySQL','Tailwind CSS','Recharts','jsPDF','Vite'],
@@ -11,7 +13,7 @@ const projects = [
     highlights:['Role-based dashboards','GST Invoice Engine','PDF Export','Stock Management','Live Analytics'],
   },
   {
-    icon:'🌐', badge:'Laravel · Livewire',
+    Icon: FaGlobe, badge:'Laravel · Livewire',
     title:'Multi-Website Dynamic CMS Builder',
     desc:'Multi-tenant platform to create and manage multiple websites with drag-and-drop sections, SEO settings, and role-based access from one admin panel.',
     tech:['Laravel','Livewire','PHP','MySQL','SortableJS','Spatie Permission','Tailwind CSS'],
@@ -20,7 +22,7 @@ const projects = [
     highlights:['Multi-tenant','Drag & Drop','SEO Management','Role-based Access'],
   },
   {
-    icon:'🤖', badge:'Learning Project · AI',
+    Icon: FaRobot, badge:'Learning Project · AI',
     title:'BotPilot — AI Chatbot Builder',
     desc:'Personal learning project — AI chatbot platform integrating LLaMA 3 via Groq API. Create, customize, and embed chatbots on any website with JS widget.',
     tech:['Node.js','Express.js','React.js','MySQL','Groq AI','LLaMA 3','JWT','REST API'],
@@ -29,7 +31,7 @@ const projects = [
     highlights:['Groq AI / LLaMA 3','Embeddable Widget','JWT Auth','Analytics'],
   },
   {
-    icon:'🌍', badge:'Client Work · Production',
+    Icon: FaGlobe, badge:'Client Work · Production',
     title:'25+ WordPress Websites',
     desc:'Delivered 25+ production WordPress websites for community portals, professional associations, e-commerce stores, and businesses with full SEO and cPanel deployment.',
     tech:['WordPress','Elementor','WooCommerce','Hostinger','cPanel','Yoast SEO','PHP'],
@@ -99,24 +101,26 @@ export default function Projects() {
 
               <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:'16px'}}>
                 <div style={{
-                  width:'56px',height:'56px',borderRadius:'16px',fontSize:'26px',
+                  width:'56px',height:'56px',borderRadius:'16px',
                   background:`${p.color}15`,border:`1px solid ${p.color}30`,
                   display:'flex',alignItems:'center',justifyContent:'center',
                   boxShadow: hovered===i ? `0 0 20px ${p.color}40` : 'none',
                   transition:'all 0.3s',
-                }}>{p.icon}</div>
+                }}>
+                  <p.Icon size={24} color={p.color} />
+                </div>
                 {p.github && (
                   <a href={p.github} target="_blank" rel="noopener noreferrer"
                     style={{
                       width:'38px',height:'38px',borderRadius:'10px',
                       background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.08)',
                       display:'flex',alignItems:'center',justifyContent:'center',
-                      color:'#94a3b8',textDecoration:'none',fontSize:'16px',
+                      color:'#94a3b8',textDecoration:'none',
                       transition:'all 0.2s',
                     }}
                     onMouseEnter={e=>{e.currentTarget.style.background=`${p.color}20`;e.currentTarget.style.borderColor=p.color+'44';e.currentTarget.style.color=p.color}}
                     onMouseLeave={e=>{e.currentTarget.style.background='rgba(255,255,255,0.04)';e.currentTarget.style.borderColor='rgba(255,255,255,0.08)';e.currentTarget.style.color='#94a3b8'}}
-                  >↗</a>
+                  ><FaGithub size={17} /></a>
                 )}
               </div>
 
@@ -173,7 +177,9 @@ export default function Projects() {
             onMouseEnter={e=>{e.currentTarget.style.borderColor='rgba(59,130,246,0.4)';e.currentTarget.style.color='#f1f5f9';e.currentTarget.style.background='rgba(59,130,246,0.08)'}}
             onMouseLeave={e=>{e.currentTarget.style.borderColor='rgba(255,255,255,0.1)';e.currentTarget.style.color='#94a3b8';e.currentTarget.style.background='rgba(255,255,255,0.04)'}}
           >
-            View More on GitHub ↗
+            <FaGithub size={16} />
+            View More on GitHub
+            <MdArrowOutward size={14} />
           </a>
         </div>
       </div>

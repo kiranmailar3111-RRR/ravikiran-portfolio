@@ -2,17 +2,16 @@ import { useEffect, useRef, useState } from 'react'
 
 const roles = [
   'Full Stack Developer',
-  'Laravel & Livewire Expert',
+  'Laravel & Livewire Developer',
   'WordPress Developer',
   'React.js Developer',
-  'SaaS Builder & AI Explorer',
+  ' AI Explorer',
 ]
 
 const stats = [
   { num: 25, suffix: '+', label: 'Websites Delivered' },
-  { num: 3, suffix: '', label: 'SaaS Products Built' },
-  { num: 2, suffix: '.3', label: 'Years Experience' },
-  { num: 500, suffix: '+', label: 'Students Managed' },
+  { num: 5, suffix: '+', label: 'Web Applications Built' },
+  { num: 2, suffix: '.5', label: 'Years Experience' },
 ]
 
 export default function Hero() {
@@ -163,7 +162,7 @@ export default function Hero() {
           >
             📬 Get In Touch
           </a>
-          <a href="/resume.pdf" download
+          <a href="Ravikiran_FullStackDeveloper_Resume_Updated.pdf" download
             style={{
               padding:'16px 40px',borderRadius:'12px',fontSize:'15px',fontWeight:600,
               background:'rgba(255,255,255,0.04)',color:'#f1f5f9',
